@@ -5,7 +5,7 @@ import PlaneBackground from '../../../assets/PlaneBackground.jpg'
 import { Link } from 'react-router-dom';
 import { normalButtonStyles, normalButtonHoverStyles } from '../../../constants/styles';
 
-function HomeNavBar() {
+function Greeting() {
     return (
         <Box sx={{ position: 'relative', backgroundColor: '#3F4B3B', overflow: 'hidden', height: '520px', boxShadow: 3, color: "white" }}>
             <Box component='img' src={PlaneBackground} alt="Home Background with a plane" sx={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0.05 }} />
@@ -22,4 +22,5 @@ function HomeNavBar() {
     )
 }
 
-export default HomeNavBar
+export default Greeting
+

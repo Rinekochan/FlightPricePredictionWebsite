@@ -5,12 +5,12 @@ import {
     Switch, Snackbar, Alert, Fab, Dialog, DialogTitle, DialogContent, DialogContentText,
     DialogActions, CircularProgress, LinearProgress, Chip, Avatar, Divider
 } from '@mui/material';
-import HomeNavBar from './HomeNavBar';
+import Greeting from './Greeting';
 
 function HomePage() {
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }} >
-            <HomeNavBar />
+            <Greeting />
         </Box>
     )
 }
