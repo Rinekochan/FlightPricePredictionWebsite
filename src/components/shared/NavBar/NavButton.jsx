@@ -6,20 +6,28 @@ import {
     DialogActions, CircularProgress, LinearProgress, Chip, Avatar, Divider,
     useColorScheme
 } from '@mui/material';
-import { Link } from 'react-router-dom';
-import { navButtonHoverStyles } from '../../../constants/styles';
+import { NavLink, Link } from 'react-router-dom';
+import { navButtonHoverStyles, navButtonActive } from '../../../constants/styles';
 
 function NavButton() {
     useColorScheme
     return (
         <Box sx={{ position: 'absolute', left: '50%', display: 'flex', transform: 'translateX(-50%)', alignItems: 'baseline' }}>
-            <Button sx={{ ml: 1, mr: 1, '&:hover': navButtonHoverStyles }} color="inherit" component={Link} to="/">Home</Button>
+            <NavLink to="/" style={({ isActive }) => ({ color: isActive ? '#E4BB97' : "inherit", borderBottom: isActive ? '2px solid #E4BB97' : 'none' })}>
+                <Button sx={{ ml: 1, mr: 1, '&:hover': navButtonHoverStyles }} color="inherit">Home</Button>
+            </NavLink>
             <Typography sx={{ display: 'inline' }}> | </Typography>
-            <Button sx={{ ml: 1, mr: 1, '&:hover': navButtonHoverStyles }} color="inherit" component={Link} to="/about">About</Button>
+            <NavLink to="/about" style={({ isActive }) => ({ color: isActive ? '#E4BB97' : "inherit", borderBottom: isActive ? '2px solid #E4BB97' : 'none' })}>
+                <Button sx={{ ml: 1, mr: 1, '&:hover': navButtonHoverStyles }} color="inherit">About</Button>
+            </NavLink>
             <Typography sx={{ display: 'inline' }}> | </Typography>
-            <Button sx={{ ml: 1, mr: 1, '&:hover': navButtonHoverStyles }} color="inherit" component={Link} to="/flight">Flight</Button>
+            <NavLink to="/flight" style={({ isActive }) => ({ color: isActive ? '#E4BB97' : "inherit", borderBottom: isActive ? '2px solid #E4BB97' : 'none' })}>
+                <Button sx={{ ml: 1, mr: 1, '&:hover': navButtonHoverStyles }} color="inherit" component={Link} to="/flight">Flight</Button>
+            </NavLink>
             <Typography sx={{ display: 'inline' }}> | </Typography>
-            <Button sx={{ ml: 1, mr: 1, '&:hover': navButtonHoverStyles }} color="inherit" component={Link} to="/faq">FAQ</Button>
+            <NavLink to="/faq" style={({ isActive }) => ({ color: isActive ? '#E4BB97' : "inherit", borderBottom: isActive ? '2px solid #E4BB97' : 'none' })}>
+                <Button sx={{ ml: 1, mr: 1, '&:hover': navButtonHoverStyles }} color="inherit" component={Link} to="/faq">FAQ</Button>
+            </NavLink>
         </Box>
     )
 }

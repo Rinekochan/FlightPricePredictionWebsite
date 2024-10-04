@@ -16,6 +16,19 @@ export const fonts = createTheme({
 export const navButtonHoverStyles = {
   backgroundColor: 'inherit',
   color: '#E4BB97',
-  textDecoration: 'underline',
-  transition: 'color 0.3s ease',
+  transition: 'color 0.2s ease',
 };
+
+// Resuable normal button styles
+export const normalButtonStyles = {
+  width: '145px',
+  height: '40px',
+  borderRadius: '20px',
+}
+
+export const normalButtonHoverStyles = {
+  transition: 'transform 0.3s ease', // Smooth transition for size change
+  '&:hover': {
+    transform: 'scale(1.1)', // Increase size on hover
+  },
+}

@@ -11,6 +11,9 @@ function AboutPage() {
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }} >
             <NavBar />
+            <Box sx={{my: 5}}>
+                I'm About Page
+            </Box>
         </Box>
     )
 }
