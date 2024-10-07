@@ -10,6 +10,7 @@ import { NavLink, Link } from 'react-router-dom';
 import { navButtonHoverStyles, navButtonActive } from '../../../constants/styles';
 
 function NavButton() {
+    // eslint-disable-next-line no-unused-expressions
     useColorScheme
     return (
         <Box sx={{ position: 'absolute', left: '50%', display: 'flex', transform: 'translateX(-50%)', alignItems: 'baseline' }}>

@@ -6,11 +6,15 @@ import {
     DialogActions, CircularProgress, LinearProgress, Chip, Avatar, Divider
 } from '@mui/material';
 import Greeting from './Greeting';
+import Contact from './Contact';
+import Footer from '../../shared/Footer';
 
 function HomePage() {
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }} >
             <Greeting />
+            <Contact />
+            <Footer />
         </Box>
     )
 }
