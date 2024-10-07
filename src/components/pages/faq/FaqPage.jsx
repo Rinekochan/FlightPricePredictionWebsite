@@ -1,5 +1,6 @@
 import React from 'react'
 import NavBar from '../../shared/NavBar/NavBar'
+import Footer from '../../shared/Footer/Footer';
 import {
     AppBar, Toolbar, Typography, Container, Grid, Card, CardContent, Button, Box,
     Drawer, List, ListItem, ListItemIcon, ListItemText, IconButton, TextField,
@@ -14,6 +15,7 @@ function FaqPage() {
             <Box sx={{my: 5}}>
                 I'm FAQ Page
             </Box>
+            <Footer />
         </Box>
     )
 }

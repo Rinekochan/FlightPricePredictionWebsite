@@ -7,7 +7,7 @@ import {
 } from '@mui/material';
 import Greeting from './Greeting';
 import Contact from './Contact';
-import Footer from '../../shared/Footer';
+import Footer from '../../shared/Footer/Footer';
 
 function HomePage() {
     return (

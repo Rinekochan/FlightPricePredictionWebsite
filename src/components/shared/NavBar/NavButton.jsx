@@ -23,11 +23,11 @@ function NavButton() {
             </NavLink>
             <Typography sx={{ display: 'inline' }}> | </Typography>
             <NavLink to="/flight" style={({ isActive }) => ({ color: isActive ? '#E4BB97' : "inherit", borderBottom: isActive ? '2px solid #E4BB97' : 'none' })}>
-                <Button sx={{ ml: 1, mr: 1, '&:hover': navButtonHoverStyles }} color="inherit" component={Link} to="/flight">Flight</Button>
+                <Button sx={{ ml: 1, mr: 1, '&:hover': navButtonHoverStyles }} color="inherit">Flight</Button>
             </NavLink>
             <Typography sx={{ display: 'inline' }}> | </Typography>
             <NavLink to="/faq" style={({ isActive }) => ({ color: isActive ? '#E4BB97' : "inherit", borderBottom: isActive ? '2px solid #E4BB97' : 'none' })}>
-                <Button sx={{ ml: 1, mr: 1, '&:hover': navButtonHoverStyles }} color="inherit" component={Link} to="/faq">FAQ</Button>
+                <Button sx={{ ml: 1, mr: 1, '&:hover': navButtonHoverStyles }} color="inherit">FAQ</Button>
             </NavLink>
         </Box>
     )
