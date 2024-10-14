@@ -1,9 +1,9 @@
 import { Box, Typography, Button } from '@mui/material'
 import React from 'react'
-import ToolBar from '../../shared/NavBar/ToolBar'
-import PlaneBackground from '../../../assets/PlaneBackground.jpg'
+import ToolBar from '../shared/NavBar/ToolBar'
+import PlaneBackground from '../../assets/PlaneBackground.jpg'
 import { Link } from 'react-router-dom';
-import { normalButtonStyles, normalButtonHoverStyles } from '../../../constants/styles';
+import { normalButtonStyles, normalButtonHoverStyles } from '../../styles/styles';
 
 function Greeting() {
     return (

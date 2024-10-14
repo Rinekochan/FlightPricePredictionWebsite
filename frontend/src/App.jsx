@@ -1,12 +1,12 @@
 import React from 'react'
-import HomePage from './components/pages/home/HomePage'
-import AboutPage from './components/pages/about/AboutPage'
-import FlightPage from './components/pages/flight/FlightPage'
-import FaqPage from './components/pages/faq/FaqPage'
+import HomePage from './pages/HomePage'
+import AboutPage from './pages/AboutPage'
+import FlightPage from './pages/FlightPage'
+import FaqPage from './pages/FaqPage'
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import { ThemeProvider } from '@mui/material'
-import { fonts } from './constants/styles'
+import { fonts } from './styles/styles'
 
 function App() {
   return (

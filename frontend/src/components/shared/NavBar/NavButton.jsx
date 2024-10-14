@@ -1,13 +1,9 @@
 import React from 'react'
 import {
-    AppBar, Toolbar, Typography, Container, Grid, Card, CardContent, Button, Box,
-    Drawer, List, ListItem, ListItemIcon, ListItemText, IconButton, TextField,
-    Switch, Snackbar, Alert, Fab, Dialog, DialogTitle, DialogContent, DialogContentText,
-    DialogActions, CircularProgress, LinearProgress, Chip, Avatar, Divider,
-    useColorScheme
+    Typography, Button, Box, useColorScheme
 } from '@mui/material';
-import { NavLink, Link } from 'react-router-dom';
-import { navButtonHoverStyles, navButtonActive } from '../../../constants/styles';
+import { NavLink } from 'react-router-dom';
+import { navButtonHoverStyles } from '../../../styles/styles';
 
 function NavButton() {
     // eslint-disable-next-line no-unused-expressions

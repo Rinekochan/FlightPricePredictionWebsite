@@ -1,9 +1,9 @@
 import React from 'react';
 import { Typography, Box, Avatar } from '@mui/material';
 import Carousel from 'react-material-ui-carousel'
-import VietAvatar from '../../../assets/VietAvatar.png'
-import SiradanaiAvatar from '../../../assets/SiradanaiAvatar.jpg'
-import PawaritAvatar from '../../../assets/PawaritAvatar.JPG'
+import VietAvatar from '../../assets/VietAvatar.png'
+import SiradanaiAvatar from '../../assets/SiradanaiAvatar.jpg'
+import PawaritAvatar from '../../assets/PawaritAvatar.JPG'
 
 function HomeProfileCarousel() {
     var profiles = [

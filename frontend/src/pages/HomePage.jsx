@@ -1,10 +1,10 @@
 import React from 'react'
 import { Divider, Box } from '@mui/material';
-import Greeting from './Greeting';
-import Contact from './Contact';
-import Footer from '../../shared/Footer/Footer';
-import FeatureDisplay from './FeatureDisplay';
-import HomeProfileCarousel from './HomeProfileCarousel';
+import Footer from '../components/shared/Footer/Footer';
+import Greeting from '../components/home/Greeting';
+import Contact from '../components/home/Contact';
+import FeatureDisplay from '../components/home/FeatureDisplay';
+import HomeProfileCarousel from '../components/home/HomeProfileCarousel';
 
 function HomePage() {
     return (
