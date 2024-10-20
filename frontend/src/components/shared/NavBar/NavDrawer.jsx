@@ -37,10 +37,6 @@ function NavDrawer() {
                             <ListItemIcon><FlightIcon sx = {{color: '#3F4B3B'}} /></ListItemIcon>
                             <ListItemText sx = {{color: 'black'}} primary="Flight" />
                         </ListItem>
-                        <ListItem button component={Link} to="/faq">
-                            <ListItemIcon><HelpIcon sx = {{color: '#3F4B3B'}} /></ListItemIcon>
-                            <ListItemText sx = {{color: 'black'}} primary="FAQ" />
-                        </ListItem>
                     </List>
                     {/* <Divider />
             <List>

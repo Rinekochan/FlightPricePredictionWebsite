@@ -15,10 +15,6 @@ function FooterLink() {
             <Link href="/flight" variant="h6" color="inherit" sx={{ textDecoration: 'none', fontSize: '14px', mx: 2 }}>
                 Flight
             </Link>
-            <Typography sx={{ display: 'inline', mt: -0.4 }}> | </Typography>
-            <Link href="/faq" variant="h6" color="inherit" sx={{ textDecoration: 'none', fontSize: '14px', mx: 2 }}>
-                FAQ
-            </Link>
         </Box>
     )
 }
