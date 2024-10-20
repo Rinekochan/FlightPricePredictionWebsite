@@ -1,20 +1,20 @@
-import React from 'react'
-import NavBar from '../components/shared/NavBar/NavBar'
+import React from 'react';
+import NavBar from '../components/shared/NavBar/NavBar';
 import Footer from '../components/shared/Footer/Footer';
-import {
-    Box
-} from '@mui/material';
+import HowWeBegan from '../components/about/HowWeBeganSection';
+import AboutProfileCarousel from '../components/about/AboutProfileCarousel';
+import { Box, Typography, Divider } from '@mui/material';
 
 function AboutPage() {
     return (
-        <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }} >
+        <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
             <NavBar />
-            <Box sx={{my: 5}}>
-                I'm About Page
-            </Box>
+            <HowWeBegan />
+            <Divider />
+            <AboutProfileCarousel />
             <Footer />
-        </Box>
-    )
+        </Box >
+    );
 }
 
-export default AboutPage
+export default AboutPage;

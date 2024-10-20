@@ -11,12 +11,12 @@ function HomePage() {
         <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }} >
             <Greeting />
             {
-            // Prem add your part here 
+                // Prem add your part here 
             }
             <FeatureDisplay />
-            <Divider/>
+            <Divider />
             <HomeProfileCarousel />
-            <Divider/>
+            <Divider />
             <Contact />
             <Footer />
         </Box>
