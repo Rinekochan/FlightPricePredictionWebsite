@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Typography, Grid, Divider } from '@mui/material';
 
-function HowWeBegan() {
+function AboutGroup() {
     return (
         <Box sx={{ my: 5, flexGrow: 1, px: 3 }}>
             <Grid container spacing={3} alignItems="center" justifyContent="center">
@@ -30,4 +30,4 @@ function HowWeBegan() {
     );
 }
 
-export default HowWeBegan;
+export default AboutGroup;

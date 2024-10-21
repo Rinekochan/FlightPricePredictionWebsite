@@ -31,30 +31,8 @@ function AboutProfileCarousel() {
         <Box sx={{ width: "75%", my: 6, color: "#494949", mx: 'auto' }}>
             <Carousel animation="slide" navButtonsAlwaysVisible autoPlay={false}>
                 {profiles.map((profile, index) => (
-                    <Box
-                        key={`about-carousel-${index}`}
-                        sx={{
-                            display: 'flex',
-                            flexDirection: { xs: 'column', md: 'row' },
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            textAlign: { xs: 'center', md: 'left' },
-                            maxWidth: '900px',
-                            mx: 'auto',
-                            p: 3,
-                        }}
-                    >
-                        <Avatar
-                            alt={profile.name}
-                            src={profile.image}
-                            sx={{
-                                width: 120,
-                                height: 120,
-                                mr: { md: 4, xs: 0 },
-                                mb: { xs: 2, md: 0 },
-                            }}
-                        />
-
+                    <Box key={`about-carousel-${index}`} sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, alignItems: 'center', justifyContent: 'center', textAlign: { xs: 'center', md: 'left' }, maxWidth: '900px', mx: 'auto', p: 3, }} >
+                        <Avatar alt={profile.name} src={profile.image} sx={{ width: 120, height: 120, mr: { md: 4, xs: 0 }, mb: { xs: 2, md: 0 },}} />\
                         <Box>
                             <Typography variant="body1" color="textSecondary" sx={{ color: 'black', mb: 2 }}>
                                 {profile.content}
