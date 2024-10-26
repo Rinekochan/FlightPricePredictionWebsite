@@ -1,5 +1,7 @@
 import React from 'react';
 import { Box, Typography, Grid, Divider } from '@mui/material';
+import Swinburne from '../../assets/Swinburne.jpg'
+
 
 function AboutGroup() {
     return (
@@ -13,16 +15,13 @@ function AboutGroup() {
                         It started at room EN207...
                     </Typography>
                     <Typography variant="body1" sx={{ pl: { xs: '20px', sm: '50px', md: '100px', lg: '150px' } }}>
-                        We were 3 students studying computer science with the vision to develop a tool to help people live better. We were inspired and all have this fire and sparkles in our eyes. Passion to strive is what made us form a group together, under the name of "Kamikaze".
+                        Three computer science students brought together by a shared vision: to build something meaningful that could help people make smarter decisions. We joined forces to form what is now known as Kamikaze. Today, Kamikaze has grown into a platform dedicated to flight predictions—giving travellers better insights into flight prices and helping them plan with confidence.
                     </Typography>
                 </Grid>
 
-                {/* group image */}
                 <Grid item xs={12} md={6} sx={{ textAlign: 'center' }}>
                     <Box sx={{ width: '100%', height: 'auto', maxWidth: '500px', margin: 'auto' }}>
-                        <Box sx={{ width: '100%', height: '250px', border: '1px solid lightgray', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                            group image here boys
-                        </Box>
+                        <Box component="img" src={Swinburne} alt="Swinburne Image" sx={{ width: '100%', height: 'auto', maxWidth: '500px', margin: 'auto', border: '1px solid lightgray', borderRadius: '8px' }} />
                     </Box>
                 </Grid>
             </Grid>
