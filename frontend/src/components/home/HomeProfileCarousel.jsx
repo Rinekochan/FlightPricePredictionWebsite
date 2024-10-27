@@ -33,10 +33,10 @@ function HomeProfileCarousel() {
                 {
                     profiles.map((profile, index) => (
                         <Box key={`carousel-${index}`} sx={{ display: 'flex', flexDirection: 'column', maxWidth: '700px', mx: 'auto', textAlign: 'center', alignItems: 'center', justifyContent: 'center' }}>
-                            <Typography variant="body1" color="textSecondary" sx={{ maxWidth: '700px', margin: '0 auto', color: 'black'}}>
+                            <Typography variant="body1" color="textSecondary" sx={{ maxWidth: '700px', margin: '0 auto', color: 'black' }}>
                                 {profile.content}
                             </Typography>
-                            <Avatar alt={profile.name} src={profile.image} sx={{ mt: 3, width: 48, height: 48 }}/>
+                            <Avatar alt={profile.name} src={profile.image} sx={{ mt: 3, width: 48, height: 48 }} />
                             <Typography variant="body1" sx={{ mt: 1, fontSize: '14px' }}>
                                 {`${profile.name}, ${profile.title}`}
                             </Typography>
