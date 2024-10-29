@@ -33,6 +33,10 @@ function NavDrawer() {
                             <ListItemIcon><InfoIcon sx = {{color: '#3F4B3B'}} /></ListItemIcon>
                             <ListItemText sx = {{color: 'black'}} primary="About" />
                         </ListItem>
+                        <ListItem button component={Link} to="/dataset">
+                            <ListItemIcon><FlightIcon sx = {{color: '#3F4B3B'}} /></ListItemIcon>
+                            <ListItemText sx = {{color: 'black'}} primary="Dataset" />
+                        </ListItem>
                         <ListItem button component={Link} to="/predict">
                             <ListItemIcon><FlightIcon sx = {{color: '#3F4B3B'}} /></ListItemIcon>
                             <ListItemText sx = {{color: 'black'}} primary="Predict" />
@@ -46,13 +50,6 @@ function NavDrawer() {
                             <ListItemText sx = {{color: 'black'}} primary="Classify" />
                         </ListItem>
                     </List>
-                    {/* <Divider />
-            <List>
-            <ListItem>
-            <ListItemText primary="Dark Mode" />
-            <Switch checked={darkMode} onChange={handleDarkModeToggle} />
-            </ListItem>
-            </List> */}
                 </Box>
             </Drawer>
         </Box>

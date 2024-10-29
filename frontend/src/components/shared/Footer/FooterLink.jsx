@@ -13,6 +13,10 @@ function FooterLink() {
                 About
             </Link>
             <Typography sx={{ display: 'inline', mt: -0.4 }}> | </Typography>
+            <Link href="/dataset" variant="h6" color="inherit" sx={{ textDecoration: 'none', fontSize: '14px', mx: 2 }}>
+                Dataset
+            </Link>
+            <Typography sx={{ display: 'inline', mt: -0.4 }}> | </Typography>
             <Link href="/predict" variant="h6" color="inherit" sx={{ textDecoration: 'none', fontSize: '14px', mx: 2 }}>
                 Predict
             </Link>
