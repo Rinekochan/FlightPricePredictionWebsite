@@ -7,15 +7,18 @@ function FeatureDisplay() {
         [
             {
                 title: "Prediction",
-                description: "We will predict the flight prices within the next 20 years"
+                description: "We will predict the flight prices within the next 20 years",
+                link: "/predict"
             },
             {
                 title: "Recommendation",
-                description: "We will recommend to you the similar flights from the searched flight"
+                description: "We will recommend to you the similar flights from the searched flight",
+                link: "/recommend"
             },
             {
                 title: "Classification",
-                description: "We will classify the price if it's higher or lower than the trend"
+                description: "We will classify the price if it's higher or lower than the trend",
+                link: "/classify"
             }
         ]
         ;
@@ -39,7 +42,7 @@ function FeatureDisplay() {
                                 <LinearProgress sx={{ mt: 2 }} color="success" value={card * 33} />
                             </CardContent>
                             <Box sx={{ p: 2, mt: -1 }}>
-                                <Button size="small" variant="contained" component={Link} to="/flight" sx={{ backgroundColor: '#333333', color: 'white', fontWeight: 'bold', textTransform: 'none', '&:hover': { backgroundColor: '#222222' } }}>
+                                <Button size="small" variant="contained" component={Link} to={card.link} sx={{ backgroundColor: '#333333', color: 'white', fontWeight: 'bold', textTransform: 'none', '&:hover': { backgroundColor: '#222222' } }}>
                                     LEARN MORE
                                 </Button>
                             </Box>

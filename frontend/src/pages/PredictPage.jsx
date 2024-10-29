@@ -5,16 +5,16 @@ import {
     Box
 } from '@mui/material';
 
-function FlightPage() {
+function PredictPage() {
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }} >
             <NavBar />
             <Box sx={{my: 5}}>
-                I'm Flight Page
+                I'm Prediction Page
             </Box>
             <Footer />
         </Box>
     )
 }
 
-export default FlightPage
+export default PredictPage

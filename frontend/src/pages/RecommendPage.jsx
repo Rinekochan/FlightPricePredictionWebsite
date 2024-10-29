@@ -5,16 +5,16 @@ import {
     Box
 } from '@mui/material';
 
-function FaqPage() {
+function RecommendPage() {
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }} >
             <NavBar />
             <Box sx={{my: 5}}>
-                I'm FAQ Page
+                I'm Recommendation Page
             </Box>
             <Footer />
         </Box>
     )
 }
 
-export default FaqPage
+export default RecommendPage

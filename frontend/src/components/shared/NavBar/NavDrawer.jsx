@@ -33,9 +33,17 @@ function NavDrawer() {
                             <ListItemIcon><InfoIcon sx = {{color: '#3F4B3B'}} /></ListItemIcon>
                             <ListItemText sx = {{color: 'black'}} primary="About" />
                         </ListItem>
-                        <ListItem button component={Link} to="/flight">
+                        <ListItem button component={Link} to="/predict">
                             <ListItemIcon><FlightIcon sx = {{color: '#3F4B3B'}} /></ListItemIcon>
-                            <ListItemText sx = {{color: 'black'}} primary="Flight" />
+                            <ListItemText sx = {{color: 'black'}} primary="Predict" />
+                        </ListItem>
+                        <ListItem button component={Link} to="/recommend">
+                            <ListItemIcon><FlightIcon sx = {{color: '#3F4B3B'}} /></ListItemIcon>
+                            <ListItemText sx = {{color: 'black'}} primary="Recommend" />
+                        </ListItem>
+                        <ListItem button component={Link} to="/classify">
+                            <ListItemIcon><FlightIcon sx = {{color: '#3F4B3B'}} /></ListItemIcon>
+                            <ListItemText sx = {{color: 'black'}} primary="Classify" />
                         </ListItem>
                     </List>
                     {/* <Divider />

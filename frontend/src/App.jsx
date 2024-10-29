@@ -1,8 +1,9 @@
 import React from 'react'
 import HomePage from './pages/HomePage'
 import AboutPage from './pages/AboutPage'
-import FlightPage from './pages/FlightPage'
-import FaqPage from './pages/FaqPage'
+import PredictPage from './pages/PredictPage'
+import RecommendPage from './pages/RecommendPage'
+import ClassifyPage from './pages/ClassifyPage'
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import { ThemeProvider } from '@mui/material'
@@ -14,8 +15,9 @@ function App() {
       <Routes>
           <Route path = "/" element={<HomePage />} />
           <Route path = "/about" element={<AboutPage />} />
-          <Route path = "/flight" element={<FlightPage />} />
-          <Route path = "/faq" element={<FaqPage />} />
+          <Route path = "/predict" element={<PredictPage />} />
+          <Route path = "/recommend" element={<RecommendPage />} />
+          <Route path = "/classify" element={<ClassifyPage />} />
           <Route path = "*" element={<HomePage />} />
       </Routes>
     </ThemeProvider>
