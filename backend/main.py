@@ -1,8 +1,14 @@
 from fastapi import FastAPI, HTTPException, Depends, Request
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from fastapi.responses import JSONResponse
 from fastapi import BackgroundTasks
+from predict_model import PredictModel
+from dataset import Dataset
+from fastapi.middleware.cors import CORSMiddleware
+from utils import logger
 import time
+
+app = FastAPI()
 
 # Add CORS middleware
 app.add_middleware(
@@ -13,3 +19,54 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Initialize dataset
+dataset = Dataset()
+
+# Initialize the model
+predict_model = PredictModel(dataset)
+
+# Define a Pydantic model to validate and parse input data for prediction
+class PredictionInput(BaseModel):
+    # Field defines constraints for input validation
+    year: int = Field(..., gt=2024, description="Year of Flight")
+    quarter: int = Field(..., ge=1, le=4, description="Quarter in that year of flight")
+    distance: int = Field(..., gt=0, description="Distance of the flight")
+    passengers: int = Field(..., gt=0, description="Number of passengers inside the flight")
+
+# Define a GET endpoint at "/datasets" to fetch historical datasets
+@app.get("/datasets")
+async def get_historical_data():
+    try:
+        # Return the processed dataset as JSON
+        data = dataset.to_dict()
+
+        return {"data": data}
+    except Exception as e:
+        # Log the error if an exception occurs during prediction
+        logger.error(f"Error during fetching historical data: {str(e)}")
+
+        raise HTTPException(status_code=500, detail="Failed to retrieve historical data") from e
+
+# Define a POST endpoint at "/predict" for price prediction
+@app.post("/predict/")
+async def predict_price(input: PredictionInput):
+    try:
+        # Call the model's predict method using the input data
+        price = predict_model.predict(input.year, input.quarter, input.distance, input.passengers)[0]
+        
+        # Log the prediction details (price, square footage, and bedrooms)
+        logger.info(f"Prediction made: {price} for Year {input.year}, Quarter {input.quarter}, Distance {input.distance}, Passengers {input.passengers}")
+        
+        # Return the predicted price in JSON format, rounding to 2 decimal places
+        return {"predicted_price": round(price, 2)}
+    
+    except Exception as e:
+        # Log the error if an exception occurs during prediction
+        logger.error(f"Error during prediction: {str(e)}")
+        
+        # Raise an HTTP 500 Internal Server Error if prediction fails
+        raise HTTPException(status_code=500, detail="Internal server error")
+    
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)

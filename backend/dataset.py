@@ -1,12 +1,13 @@
 import pandas as pd
 import numpy as np
+
 from sklearn.preprocessing import LabelEncoder
 
 # A simple regression model
 class Dataset:
     def __init__(self):
         # Initialize the model (Linear Regression)
-        self.dataset = pd.read_csv("../datasets/US_Airfare.csv")
+        self.dataset = pd.read_csv("./datasets/US_Airfare.csv")
 
     def preprocess(self):
         # Remove potential duplicates of all datasets
@@ -16,7 +17,7 @@ class Dataset:
         self.dataset = self.dataset[self.dataset['Year'] >= 2014].copy()
         
         # Drop the flights with 0 passenger because we want to predict the commercial flights
-        self.dataset = self.dataset[self.dataset['passengers'] != 0].copy()
+        self.dataset = self.dataset[self.dataset['Passengers'] != 0].copy()
 
         # Sort the dataset based on year and quarter column
         self.dataset = self.dataset.sort_values(by=['Year', 'Quarter'], ascending=[True, True])
@@ -45,6 +46,7 @@ class Dataset:
 
         print(f"Current dataset: {self.dataset}")
 
+    @staticmethod
     def remove_outliers(data):
         Q1 = data['Fare'].quantile(0.25)
         Q3 = data['Fare'].quantile(0.75)
@@ -54,6 +56,9 @@ class Dataset:
         upper_bound = Q3 + 1.5 * IQR
 
         return data[(data['Fare'] >= lower_bound) & (data['Fare'] <= upper_bound)]
+    
+    def to_dict(self):
+        return self.dataset.to_dict(orient="records")
 
 
 # Example usage (for initial training)

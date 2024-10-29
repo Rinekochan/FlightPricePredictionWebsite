@@ -4,12 +4,14 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 import joblib
 
+from dataset import Dataset
+
 # A simple regression model
 class PredictModel:
     def __init__(self, dataset):
         # Initialize the model (Linear Regression)
-        self.model = RandomForestRegressor(n_jobs=-1, n_estimators=500)
-        self.df = dataset
+        self.model = RandomForestRegressor(n_jobs=-1, n_estimators=50)
+        self.df = dataset.dataset
 
     def train(self):
         # Select features
@@ -23,10 +25,10 @@ class PredictModel:
         self.model.fit(X_train, y_train)
         
         # Save the model
-        joblib.dump(self.model, 'predict_model.pkl')
+        joblib.dump(self.model, 'predict_model.pkl', compress=9)
 
         # Evaluation
-        y_pred = model.predict(X_test)
+        y_pred = self.model.predict(X_test)
 
         print(f"R2: {r2_score(y_test, y_pred)}")
         print(f"MAE: {mean_absolute_error(y_test, y_pred)}")
@@ -42,5 +44,7 @@ class PredictModel:
 
 # Example usage (for initial training)
 if __name__ == "__main__":
-    model = PredictModel()
+    dataset = Dataset()
+    dataset.preprocess()  # Preprocess the data before passing it to PredictModel
+    model = PredictModel(dataset)
     model.train()
