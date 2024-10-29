@@ -33,7 +33,7 @@ function FeatureDisplay() {
                                 <Typography gutterBottom variant="h5" component="h2" sx={{ fontWeight: 'bold' }}>
                                     {card.title}
                                 </Typography>
-                                <Typography>
+                                <Typography variant="body1" component="p" sx={{width: "100%"}}>
                                     {card.description}
                                 </Typography>
                                 <LinearProgress sx={{ mt: 2 }} color="success" value={card * 33} />

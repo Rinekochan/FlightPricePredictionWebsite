@@ -5,17 +5,17 @@ import Greeting from '../components/home/Greeting';
 import Contact from '../components/home/Contact';
 import FeatureDisplay from '../components/home/FeatureDisplay';
 import HomeProfileCarousel from '../components/home/HomeProfileCarousel';
+import Benefit from '../components/home/Benefit';
 
 function HomePage() {
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }} >
             <Greeting />
-            {
-                // Prem add your part here 
-            }
-            <FeatureDisplay />
+            <Benefit />
             <Divider />
             <HomeProfileCarousel />
+            <Divider />
+            <FeatureDisplay />
             <Divider />
             <Contact />
             <Footer />

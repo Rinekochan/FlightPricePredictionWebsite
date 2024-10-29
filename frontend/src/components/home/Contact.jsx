@@ -24,10 +24,10 @@ const ContactForm = () => {
 
     return (
         <Box sx={{ textAlign: 'center', padding: '50px',  }}>
-            <Typography variant="h4" component ='h2' gutterBottom sx={{ fontWeight: 'bold' }}>
+            <Typography variant="h5" component ='h2' gutterBottom sx={{ fontWeight: 'bold' }}>
                 Get In Touch
             </Typography>
-            <Typography variant="body1" color="textSecondary" sx={{ maxWidth: '700px', margin: '0 auto', color: 'black', fontSize: '16px' }}>
+            <Typography variant="body1" color="textSecondary" sx={{ maxWidth: '700px', margin: '0 auto', color: 'black' }}>
                 Subscribe now to our flight price prediction service and receive personalised alerts directly to your inbox. Be the first to know when prices drop, so you can book your dream trip at the lowest possible cost.
             </Typography>
             <form onSubmit={handleSubmit} style={{ marginTop: '30px' }}>
