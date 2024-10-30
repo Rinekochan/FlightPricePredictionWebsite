@@ -10,7 +10,7 @@ import {
 } from '@mui/material';
 
 function ToolBar() {
-    const isMobile = useMediaQuery((theme) => theme.breakpoints.down('md')); // Adjust according to your breakpoint
+    const isMobile = useMediaQuery((theme) => theme.breakpoints.down('md'));
     return (
         <Toolbar>
             <Box component={Link} to="/" sx={{ display: 'flex', alignItems: 'center', textDecoration: 'none', color: 'inherit', flexGrow: isMobile ? 1 : 0 }}>

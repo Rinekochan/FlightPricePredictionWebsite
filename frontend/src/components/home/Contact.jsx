@@ -23,7 +23,7 @@ const ContactForm = () => {
     };
 
     return (
-        <Box sx={{ textAlign: 'center', padding: '50px',  }}>
+        <Box sx={{ textAlign: 'center', padding: '50px' }}>
             <Typography variant="h5" component ='h2' gutterBottom sx={{ fontWeight: 'bold' }}>
                 Get In Touch
             </Typography>
