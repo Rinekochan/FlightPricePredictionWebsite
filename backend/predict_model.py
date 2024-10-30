@@ -10,7 +10,7 @@ from dataset import Dataset
 class PredictModel:
     def __init__(self, dataset):
         # Initialize the model (Linear Regression)
-        self.model = RandomForestRegressor(n_jobs=-1, n_estimators=50)
+        self.model = RandomForestRegressor(n_jobs=-1, n_estimators=10)
         self.df = dataset.dataset
 
     def train(self):

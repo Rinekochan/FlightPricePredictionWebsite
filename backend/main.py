@@ -3,10 +3,13 @@ from pydantic import BaseModel, Field
 from fastapi.responses import JSONResponse
 from fastapi import BackgroundTasks
 from predict_model import PredictModel
+from recommend_model import RecommendModel
 from dataset import Dataset
 from fastapi.middleware.cors import CORSMiddleware
 from utils import logger
 import pandas as pd
+import joblib
+
 import time
 
 app = FastAPI()
@@ -24,8 +27,9 @@ app.add_middleware(
 dataset = Dataset()
 dataset.preprocess()
 
-# Initialize the model
+# Load the pre-trained model
 predict_model = PredictModel(dataset)
+recommend_model = RecommendModel(dataset)
 
 # Define a Pydantic model to validate and parse input data for prediction
 class PredictionInput(BaseModel):
@@ -34,6 +38,12 @@ class PredictionInput(BaseModel):
     quarter: int = Field(..., ge=1, le=4, description="Quarter in that year of flight")
     distance: int = Field(..., gt=0, description="Distance of the flight")
     passengers: int = Field(..., gt=0, description="Number of passengers inside the flight")
+
+# Define a Pydantic model to validate and parse input data for recommendation
+class RecommendationInput(BaseModel):
+    # Field defines constraints for input validation
+    price: int = Field(..., gt=0, description="Fare of the flight")
+    distance: int = Field(..., gt=0, description="Miles of the flight")
 
 # Define a GET endpoint at "/datasets" to fetch historical datasets
 @app.get("/datasets")
@@ -69,6 +79,30 @@ async def predict_price(input: PredictionInput):
         # Return the predicted price in JSON format, rounding to 2 decimal places
         return {"predicted_price": round(price, 2)}
     
+    except Exception as e:
+        # Log the error if an exception occurs during prediction
+        logger.error(f"Error during prediction: {str(e)}")
+        
+        # Raise an HTTP 500 Internal Server Error if prediction fails
+        raise HTTPException(status_code=500, detail="Internal server error")
+    
+    # Define a POST endpoint at "/recommend" for flight recommendation
+@app.post("/recommend/")
+async def recommend_flights(input: RecommendationInput):
+    try:
+        # Get similar flights
+        similar_flights = recommend_model.recommend(input.price, input.distance)
+        
+        # Log the prediction details (price, square footage, and bedrooms)
+        logger.info(f"Similar flights {similar_flights}")
+
+        # Check if similar_flights is empty or not in a valid format
+        if isinstance(similar_flights, pd.DataFrame):
+            # Convert DataFrame to a list of dictionaries
+            similar_flights = similar_flights.to_dict(orient='records')
+            
+        return {"similar_flights": similar_flights}
+
     except Exception as e:
         # Log the error if an exception occurs during prediction
         logger.error(f"Error during prediction: {str(e)}")

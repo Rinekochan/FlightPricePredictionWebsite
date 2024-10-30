@@ -23,10 +23,6 @@ class Dataset:
         self.dataset = self.dataset.sort_values(by=['Year', 'Quarter'], ascending=[True, True])
         self.dataset = self.dataset.reset_index(drop=True)
 
-        # Drop city1 and city2 since machine learning models work with numbers
-        self.dataset.drop(columns=['city1'], inplace=True)
-        self.dataset.drop(columns=['city2'], inplace=True)
-
         # Since OriginCityID and DestinationCityId needs to work as a pair to have any meaning, we combine it into a route string
         self.dataset['Route'] = self.dataset['OriginCityId'].astype(str) + '-' + self.dataset['DestinationCityId'].astype(str)
 
