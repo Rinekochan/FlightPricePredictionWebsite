@@ -3,7 +3,7 @@ import axios from 'axios';
 import Plot from 'react-plotly.js';
 import { Box } from '@mui/material';
 
-function PredictVisualisation({predictedPrice }) {
+function PredictVisualisation({ predictedPrice }) {
     const [historicalData, setHistoricalData] = useState([]); // Store historical data
 
     useEffect(() => {
@@ -59,7 +59,6 @@ function PredictVisualisation({predictedPrice }) {
                     autosize: true,
                     responsive: true, // Make the plot responsive
                 }}
-                config={{ responsive: true }} // Ensure the configuration is set for responsiveness
                 style={{ width: '100%', height: '100%' }} // Ensures the Plotly component takes full width/height
             />
         </Box>

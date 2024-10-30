@@ -12,7 +12,9 @@ function PredictPage() {
         <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }} >
             <NavBar />
             <PredictInputForm setPredictedPrice={setPredictedPrice}/>
-            <PredictVisualisation predictedPrice={predictedPrice}/>
+            <Box sx={{ p: 3 }}>
+                <PredictVisualisation predictedPrice={predictedPrice}/>
+            </Box>
             <Footer />
         </Box>
     )

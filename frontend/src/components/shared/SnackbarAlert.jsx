@@ -1,7 +1,7 @@
 import React from 'react'
 import { Snackbar, Alert } from '@mui/material';
 
-function PredictSnackbarAlert({ snackbarMessage, snackbarSeverity, setSnackbarOpen, snackbarOpen }) {
+function SnackbarAlert({ snackbarMessage, snackbarSeverity, setSnackbarOpen, snackbarOpen }) {
 
     const handleSnackbarClose = (event, reason) => {
         if (reason === 'clickaway') {
@@ -21,4 +21,4 @@ function PredictSnackbarAlert({ snackbarMessage, snackbarSeverity, setSnackbarOp
     )
 }
 
-export default PredictSnackbarAlert
+export default SnackbarAlert

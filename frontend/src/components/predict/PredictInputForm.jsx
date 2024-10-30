@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Typography, TextField, Button, Paper, Grid, Box, CircularProgress } from '@mui/material';
 import axios from 'axios';
-import PredictSnackbarAlert from './PredictSnackbarAlert';
+import SnackbarAlert from '../shared/SnackbarAlert';
 
 function PredictInputForm({ setPredictedPrice }) {
   const [inputPredictedYear, setInputPredictedYear] = useState('');
@@ -29,24 +29,28 @@ function PredictInputForm({ setPredictedPrice }) {
     if (parseInt(inputPredictedYear) <= 2024) {
       setSnackbarMessage('Year must be greater than 2024.');
       setSnackbarOpen(true);
+      setSnackbarSeverity('error');
       setLoading(false);
       return;
     }
     if (parseInt(inputPredictedQuarter) < 1 || parseInt(inputPredictedQuarter) > 4) {
       setSnackbarMessage('Quarter must be between 1 and 4.');
       setSnackbarOpen(true);
+      setSnackbarSeverity('error');
       setLoading(false);
       return;
     }
     if (parseInt(inputPredictedDistance) <= 0) {
       setSnackbarMessage('Distance must be greater than 0.');
       setSnackbarOpen(true);
+      setSnackbarSeverity('error');
       setLoading(false);
       return;
     }
     if (parseInt(inputPredictedPassengers) <= 0) {
       setSnackbarMessage('Number of passengers must be greater than 0.');
       setSnackbarOpen(true);
+      setSnackbarSeverity('error');
       setLoading(false);
       return;
     }
@@ -89,7 +93,7 @@ function PredictInputForm({ setPredictedPrice }) {
               <TextField fullWidth type="number" label="Quarter in the Year" variant="outlined" value={inputPredictedQuarter} onChange={(e) => setInputPredictedQuarter(e.target.value)} required />
             </Grid>
             <Grid item xs={12} sm={6}>
-              <TextField fullWidth type="number" label="Distance" variant="outlined" value={inputPredictedDistance} onChange={(e) => setInputPredictedDistance(e.target.value)} required />
+              <TextField fullWidth type="number" label="Distance (miles)" variant="outlined" value={inputPredictedDistance} onChange={(e) => setInputPredictedDistance(e.target.value)} required />
             </Grid>
             <Grid item xs={12} sm={6}>
               <TextField fullWidth type="number" label="Passengers" variant="outlined" value={inputPredictedPassengers} onChange={(e) => setInputPredictedPassengers(e.target.value)} required />
@@ -102,7 +106,7 @@ function PredictInputForm({ setPredictedPrice }) {
           </Grid>
         </form>
       </Paper>
-      <PredictSnackbarAlert snackbarMessage={snackbarMessage} snackbarSeverity={snackbarSeverity} snackbarOpen={snackbarOpen} setSnackbarOpen={setSnackbarOpen} />
+      <SnackbarAlert snackbarMessage={snackbarMessage} snackbarSeverity={snackbarSeverity} snackbarOpen={snackbarOpen} setSnackbarOpen={setSnackbarOpen} />
     </Box>
 
   )

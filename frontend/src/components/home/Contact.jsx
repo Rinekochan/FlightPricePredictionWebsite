@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Box, TextField, Button, Typography, Grid2 as Grid } from '@mui/material';
-import SubscribeAlert from './SubscribeAlert';
+import SnackbarAlert from '../shared/SnackbarAlert';
 
 const ContactForm = () => {
     const [formData, setFormData] = useState({ email: '', name: '' });
@@ -46,7 +46,7 @@ const ContactForm = () => {
                     </Grid>
                 </Grid>
             </form>
-            <SubscribeAlert subscribeAlert={subscribeAlert} setSubsribeAlert={setSubsribeAlert}/>
+            <SnackbarAlert snackbarMessage={`You've subscribed to our newsletter!`} snackbarSeverity={"success"} snackbarOpen={subscribeAlert} setSnackbarOpen={setSubsribeAlert} />
         </Box >
     );
 };
