@@ -6,6 +6,7 @@ from predict_model import PredictModel
 from dataset import Dataset
 from fastapi.middleware.cors import CORSMiddleware
 from utils import logger
+import pandas as pd
 import time
 
 app = FastAPI()
@@ -21,6 +22,7 @@ app.add_middleware(
 
 # Initialize dataset
 dataset = Dataset()
+dataset.preprocess()
 
 # Initialize the model
 predict_model = PredictModel(dataset)
@@ -37,10 +39,17 @@ class PredictionInput(BaseModel):
 @app.get("/datasets")
 async def get_historical_data():
     try:
-        # Return the processed dataset as JSON
-        data = dataset.to_dict()
+        # Get the dataset as a DataFrame
+        data = pd.DataFrame(dataset.to_dict())
+        
+        # Group data by Year and Quarter, calculating average Fare
+        aggregated_data = data.groupby(['Year', 'Quarter']).agg({'Fare': 'mean'}).reset_index()
+        
+        # Convert to dictionary format suitable for JSON response
+        aggregated_data_dict = aggregated_data.to_dict(orient="records")
 
-        return {"data": data}
+        return {"data": aggregated_data_dict }
+    
     except Exception as e:
         # Log the error if an exception occurs during prediction
         logger.error(f"Error during fetching historical data: {str(e)}")
