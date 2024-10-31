@@ -9,6 +9,7 @@ Welcome to the Kamikaze Flight Prediction project! This application provides fli
     - [Back-end Setup](#back-end-setup)
 - [Running Instructions](#running-instructions)
 - [AI Model Integration](#ai-model-integration)
+- [AI Model Setup (Optional)](#ai-model-setup-optional)
 
 ## Prerequisites
 
