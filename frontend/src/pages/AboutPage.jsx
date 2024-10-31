@@ -5,6 +5,7 @@ import AboutGroup from '../components/about/AboutGroup';
 import AboutProfileCarousel from '../components/about/AboutProfileCarousel';
 import { Box, Divider } from '@mui/material';
 
+// This is About Page component
 function AboutPage() {
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>

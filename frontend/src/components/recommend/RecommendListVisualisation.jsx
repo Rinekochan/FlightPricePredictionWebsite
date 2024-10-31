@@ -18,9 +18,11 @@ function RecommendListVisualisation({similarFlights}) {
         }, {});
     };
 
+    // Count frequencies of origin cities and destination cities
     const originCityCounts = countFrequencies(originCities);
     const destinationCityCounts = countFrequencies(destinationCities);
 
+    // Count frequencies of routes (origin to destination)
     const routeCounts = {};
     originCities.forEach((origin, index) => {
         const route = `${origin} to ${destinationCities[index]}`;

@@ -13,6 +13,7 @@ function PredictInputForm({ setPredictedPrice }) {
   const [snackbarSeverity, setSnackbarSeverity] = useState('success'); // 'success' or 'error'
   const [loading, setLoading] = useState(false);
 
+  // Handle form submission
   const handleSubmit = async (event) => {
     event.preventDefault();
     setPredictedPrice(null); // Reset prediction state on new submit

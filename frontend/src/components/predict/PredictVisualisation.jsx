@@ -25,6 +25,7 @@ function PredictVisualisation({ predictedPrice }) {
         fetchDataset();
     }, []);
 
+    // Map historical and predicted data to x and y arrays for Plotly
     const historicalX = historicalData.map(d => `${d.year} Q${d.quarter}`);
     const historicalY = historicalData.map(d => d.price);
 

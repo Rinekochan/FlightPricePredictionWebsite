@@ -1,9 +1,9 @@
-// DestinationCityChart.js
 import React from 'react';
 import Plot from 'react-plotly.js';
-import { Box, Typography } from '@mui/material';
+import { Box } from '@mui/material';
 
 const DestinationCityChart = ({ destinationCityCounts }) => {
+    // Extract destination city names and their respective frequencies for plotting
     const destinationCityLabels = Object.keys(destinationCityCounts);
     const destinationCityValues = Object.values(destinationCityCounts);
 

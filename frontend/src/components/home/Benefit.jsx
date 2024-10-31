@@ -1,10 +1,12 @@
 import React from 'react';
 import { Box, Typography, Grid } from '@mui/material';
 import Fly from '../../assets/FlightHappy.jpg';
+import BenefitCard from './BenefitCard';
 
 function Benefit() {
   return (
     <Box sx={{ textAlign: 'center', py: '100px' }}>
+      {/* Grid layout for benefit cards */}
       <Grid container justifyContent="center" sx={{ margin: '0 auto' }}>
         <BenefitCard
           icon="👍"
@@ -22,11 +24,14 @@ function Benefit() {
           description="Need to find cheap flights quickly? We’ll guide you to the best values wherever you want, whenever you go."
         />
       </Grid>
+      {/* Additional information section */}
       <Grid container justifyContent="center" alignItems="center" spacing={4} sx={{ mt: '80px', px: '40px' }}>
         <Grid item xs={12} md={4} sx={{ textAlign: 'center' }}>
+          {/* Title of the section */}
           <Typography variant="h5" component="h2" gutterBottom sx={{ fontWeight: 'bold' }}>
             What do we offer?
           </Typography>
+          {/* Content of the section */}
           <Typography variant="body1" color="textSecondary" sx={{ color: 'black', maxWidth: '400px', margin: '0 auto' }}>
             Our website gives you the ability to save money and make well-informed booking choices. Whether you’re
             planning a trip months in advance or looking for a last-minute getaway, we offer valuable insights to
@@ -42,22 +47,6 @@ function Benefit() {
         </Grid>
       </Grid>
     </Box>
-  );
-}
-
-function BenefitCard({ icon, title, description }) {
-  return (
-    <Grid item xs={12} sm={3} textAlign="center" sx={{my: "20px"}} >
-      <Typography variant="h3" color="textSecondary" sx={{ fontSize: '40px', color: '#555' }}>
-        {icon}
-      </Typography>
-      <Typography variant="h6" sx={{ fontWeight: 'bold', marginTop: '10px' }}>
-        {title}
-      </Typography>
-      <Typography variant="body2" color="textSecondary" sx={{ color: 'black', maxWidth: '80%', margin:'auto' }}>
-        {description}
-      </Typography>
-    </Grid>
   );
 }
 

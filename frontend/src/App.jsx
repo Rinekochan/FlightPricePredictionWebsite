@@ -8,10 +8,9 @@ import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import { ThemeProvider } from '@mui/material'
 import { fonts } from './styles/styles'
-import DatasetPage from './pages/DatasetPage'
 
 function App() {
-  
+  // This component will returns the link routes to different pages
   return (
     <ThemeProvider theme={fonts}>
       <Routes>
@@ -20,7 +19,6 @@ function App() {
           <Route path = "/predict" element={<PredictPage />} />
           <Route path = "/recommend" element={<RecommendPage />} />
           <Route path = "/classify" element={<ClassifyPage />} />
-          <Route path = "/dataset" element={<DatasetPage />} />
           <Route path = "*" element={<HomePage />} />
       </Routes>
     </ThemeProvider>

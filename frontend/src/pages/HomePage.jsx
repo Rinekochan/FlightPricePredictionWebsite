@@ -7,6 +7,7 @@ import FeatureDisplay from '../components/home/FeatureDisplay';
 import HomeProfileCarousel from '../components/home/HomeProfileCarousel';
 import Benefit from '../components/home/Benefit';
 
+// This is Home Page component
 function HomePage() {
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }} >

@@ -9,6 +9,7 @@ import {
     Toolbar, Typography, Box, useMediaQuery
 } from '@mui/material';
 
+// This is the Toolbar's content in NavBar
 function ToolBar() {
     const isMobile = useMediaQuery((theme) => theme.breakpoints.down('md'));
     return (

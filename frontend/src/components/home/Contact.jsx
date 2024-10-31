@@ -3,25 +3,27 @@ import { Box, TextField, Button, Typography, Grid2 as Grid } from '@mui/material
 import SnackbarAlert from '../shared/SnackbarAlert';
 
 const ContactForm = () => {
+    // State to hold form data (email and name)
     const [formData, setFormData] = useState({ email: '', name: '' });
-    const [subscribeAlert, setSubsribeAlert] = useState(false)
+    // State to manage the visibility of the subscription alert
+    const [subscribeAlert, setSubsribeAlert] = useState(false);
     
+    // Function to open the subscription alert
     const handleSubscribeAlertOpen = () => {
-        setSubsribeAlert(true)
-    }
+        setSubsribeAlert(true); // Set alert state to true
+    };
 
+    // Function to handle changes in form fields
     const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({ ...formData, [name]: value });
+        const { name, value } = e.target; // Destructure name and value from the event target
+        setFormData({ ...formData, [name]: value }); // Update the form data state
     };
 
+    // Function to handle form submission
     const handleSubmit = (e) => {
-        e.preventDefault();
-        handleSubscribeAlertOpen()
-        // Do something here
-        // alert(`Subscribed with: ${formData.email}, Name: ${formData.name}`);
+        e.preventDefault(); // Prevent default form submission behavior
+        handleSubscribeAlertOpen(); // Trigger the alert on submission
     };
-
     return (
         <Box sx={{ textAlign: 'center', padding: '50px' }}>
             <Typography variant="h5" component ='h2' gutterBottom sx={{ fontWeight: 'bold' }}>

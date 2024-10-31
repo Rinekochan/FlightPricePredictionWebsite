@@ -1,9 +1,9 @@
-// RouteChart.js
 import React from 'react';
 import Plot from 'react-plotly.js';
-import { Box, Typography } from '@mui/material';
+import { Box } from '@mui/material';
 
 const RouteChart = ({ routeCounts }) => {
+    // Extract route names and their respective frequencies for plotting
     const routeLabels = Object.keys(routeCounts);
     const routeValues = Object.values(routeCounts);
 

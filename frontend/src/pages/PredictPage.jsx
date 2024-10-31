@@ -11,7 +11,10 @@ function PredictPage() {
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }} >
             <NavBar />
+            {/* This is the input component of PredictPage */}
             <PredictInputForm setPredictedPrice={setPredictedPrice}/>
+
+            {/* This is the visualisation component of PredictPage */}
             <Box sx={{ p: 3 }}>
                 <PredictVisualisation predictedPrice={predictedPrice}/>
             </Box>

@@ -1,8 +1,10 @@
 import React from 'react'
 import { Snackbar, Alert } from '@mui/material';
 
+// This is Snackbar Alert component
 function SnackbarAlert({ snackbarMessage, snackbarSeverity, setSnackbarOpen, snackbarOpen }) {
 
+    // Handle snackbar closing event
     const handleSnackbarClose = (event, reason) => {
         if (reason === 'clickaway') {
             return;

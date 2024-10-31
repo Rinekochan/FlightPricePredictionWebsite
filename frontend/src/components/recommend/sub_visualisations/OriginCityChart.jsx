@@ -1,9 +1,9 @@
-// OriginCityChart.js
 import React from 'react';
 import Plot from 'react-plotly.js';
-import { Box, Typography } from '@mui/material';
+import { Box } from '@mui/material';
 
 const OriginCityChart = ({ originCityCounts }) => {
+    // Extract origin city names and their respective frequencies for plotting
     const originCityLabels = Object.keys(originCityCounts);
     const originCityValues = Object.values(originCityCounts);
 

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Box, Typography } from '@mui/material';
 
+// This is the FooterAddress component
 function FooterAddress() {
     return (
         <Box>

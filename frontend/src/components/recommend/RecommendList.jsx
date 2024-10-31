@@ -18,7 +18,7 @@ function RecommendList({similarFlights}) {
                                 secondary={`Fare: $${flight.Fare} | Miles: ${flight.Miles}`}
                             />
                         </ListItem>
-                        {index < similarFlights.length - 1 && <Divider />}
+                        {index < similarFlights.length - 1 && <Divider />} { /* Divider between list items except after the last item */ }
                     </React.Fragment>
                 ))}
             </List>

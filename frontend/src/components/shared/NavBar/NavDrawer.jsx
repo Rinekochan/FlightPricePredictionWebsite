@@ -11,6 +11,7 @@ import {
     Flight as FlightIcon,
 } from '@mui/icons-material';
 
+// This is the Navigation Drawer component, used when the screen is mobile
 function NavDrawer() {
     const [drawerOpen, setDrawerOpen] = useState(false);
     const toggleDrawer = (open) => () => {
@@ -24,6 +25,7 @@ function NavDrawer() {
             </IconButton>
             <Drawer anchor="right" open={drawerOpen} onClose={toggleDrawer(false)}>
                 <Box sx={{ width: 300 }} role="presentation" onClick={toggleDrawer(false)}>
+                    {/* Display a list of navigation links */}
                     <List>
                         <ListItem button component={Link} to="/">
                             <ListItemIcon><HomeIcon sx = {{color: '#3F4B3B'}} /></ListItemIcon>
@@ -32,10 +34,6 @@ function NavDrawer() {
                         <ListItem button component={Link} to="/about">
                             <ListItemIcon><InfoIcon sx = {{color: '#3F4B3B'}} /></ListItemIcon>
                             <ListItemText sx = {{color: 'black'}} primary="About" />
-                        </ListItem>
-                        <ListItem button component={Link} to="/dataset">
-                            <ListItemIcon><FlightIcon sx = {{color: '#3F4B3B'}} /></ListItemIcon>
-                            <ListItemText sx = {{color: 'black'}} primary="Dataset" />
                         </ListItem>
                         <ListItem button component={Link} to="/predict">
                             <ListItemIcon><FlightIcon sx = {{color: '#3F4B3B'}} /></ListItemIcon>

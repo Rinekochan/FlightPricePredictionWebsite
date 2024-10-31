@@ -1,14 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from 'react';
 import Plot from 'react-plotly.js';
-import { Box, Typography } from '@mui/material';
+import { Box } from '@mui/material';
 
 function RecommendVisualisation({ similarFlights, inputRecommendedPrice, inputRecommendedDistance }) {
-    // Prepare data for Plotly
-    const fares = similarFlights.map(flight => flight.Fare);
-    const miles = similarFlights.map(flight => flight.Miles);
-    const originCities = similarFlights.map(flight => flight.OriginCity);
-    const destinationCities = similarFlights.map(flight => flight.DestinationCity);
+    // Prepare data arrays for plotting on the chart using data from similarFlights
+    const fares = similarFlights.map(flight => flight.Fare); // Array of fares for each flight
+    const miles = similarFlights.map(flight => flight.Miles); // Array of distances for each flight
+    const originCities = similarFlights.map(flight => flight.OriginCity); // Array of origin cities
+    const destinationCities = similarFlights.map(flight => flight.DestinationCity); // Array of destination cities
 
     return (
         <Box sx={{ display: 'flex', justifyContent: 'center', width: '100%', height: '100%', m: "0 auto", my: 5}}>

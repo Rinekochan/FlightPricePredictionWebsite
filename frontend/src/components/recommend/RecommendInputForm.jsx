@@ -4,10 +4,10 @@ import axios from 'axios';
 import SnackbarAlert from '../shared/SnackbarAlert';
 
 function RecommendInputForm({ setSimilarFlights, inputRecommendedPrice, setInputRecommendedPrice, inputRecommendedDistance, setInputRecommendedDistance }) {
-  const [snackbarOpen, setSnackbarOpen] = useState(false);
-  const [snackbarMessage, setSnackbarMessage] = useState('');
-  const [snackbarSeverity, setSnackbarSeverity] = useState('success'); // 'success' or 'error'
-  const [loading, setLoading] = useState(false);
+  const [snackbarOpen, setSnackbarOpen] = useState(false); // Controls visibility of SnackbarAlert
+  const [snackbarMessage, setSnackbarMessage] = useState(''); // Sets the message displayed in SnackbarAlert
+  const [snackbarSeverity, setSnackbarSeverity] = useState('success'); // Severity level for SnackbarAlert ('success' or 'error')
+  const [loading, setLoading] = useState(false); // Controls loading state for the submit button
 
   const handleSubmit = async (event) => {
     event.preventDefault();

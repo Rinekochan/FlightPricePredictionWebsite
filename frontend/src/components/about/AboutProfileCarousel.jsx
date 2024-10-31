@@ -6,6 +6,7 @@ import Siradanai from '../../assets/SiradanaiAvatar.jpg';
 import Pawarit from '../../assets/Pawarit.JPG';
 
 function AboutProfileCarousel() {
+    // Array of profile objects containing information for each team member
     const profiles = [
         {
             name: "Viet Hoang Pham",
@@ -29,15 +30,19 @@ function AboutProfileCarousel() {
 
     return (
         <Box sx={{ width: "80%", my: 6, mx: 'auto', textAlign: 'center' }}>
+            {/* Heading for the section */}
             <Typography variant="h4" sx={{ fontWeight: 'bold', mb: 1 }}>
                 Meet our team
             </Typography>
+
+            {/* Subheading to describe the team */}
             <Typography variant="body1" sx={{ mb: 4, color: 'textSecondary' }}>
                 Three computer science students from Swinburne University of Technology
             </Typography>
 
+            {/* Carousel component to slide through profiles */}
             <Carousel animation="fade" navButtonsAlwaysVisible autoPlay={false}>
-                {profiles.map((profile, index) => (
+                {profiles.map((profile, index) => ( // Map through profiles array to display each profile
                     <Grid key={`carousel-${index}`} container alignItems="flex-start" spacing={3} justifyContent="center" sx={{ textAlign: 'left', maxWidth: '900px', width: "100%", mx: 'auto' }}>
                         <Grid item xs={12} md={6}>
                             <Box component="img" alt={profile.name} src={profile.image} sx={{ width: '100%', height: 'auto', maxHeight: '320px', objectFit: 'cover', borderRadius: '8px' }} />
