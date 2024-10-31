@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Typography, Grid, Divider } from '@mui/material';
+import { Box, Typography, Grid } from '@mui/material';
 import Swinburne from '../../assets/Swinburne.jpg'
 
 
