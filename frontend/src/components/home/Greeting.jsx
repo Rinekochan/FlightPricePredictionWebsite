@@ -22,7 +22,7 @@ function Greeting() {
                 
                 {/* Button container for navigation buttons */}
                 <Box sx={{display: 'flex', justifyContent: 'space-around', alignItems: 'center', mt: 5, mx: "auto", maxWidth: '500px', width: "80%"}}>
-                    <Button sx={{...normalButtonStyles, backgroundColor: '#202020', color: 'white', ...normalButtonHoverStyles}} color="inherit" component={Link} to="/flight">Get Started</Button>
+                    <Button sx={{...normalButtonStyles, backgroundColor: '#202020', color: 'white', ...normalButtonHoverStyles}} color="inherit" component={Link} to="/predict">Get Started</Button>
                     <Button sx={{...normalButtonStyles, backgroundColor: 'white', color: 'black' , ...normalButtonHoverStyles}} color="inherit" component={Link} to="/about">About Us</Button>
                 </Box>
             </Box>
