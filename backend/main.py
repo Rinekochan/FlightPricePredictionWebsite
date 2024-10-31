@@ -1,16 +1,11 @@
-from fastapi import FastAPI, HTTPException, Depends, Request
+from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
-from fastapi.responses import JSONResponse
-from fastapi import BackgroundTasks
 from predict_model import PredictModel
 from recommend_model import RecommendModel
 from dataset import Dataset
 from fastapi.middleware.cors import CORSMiddleware
 from utils import logger
 import pandas as pd
-import joblib
-
-import time
 
 app = FastAPI()
 
