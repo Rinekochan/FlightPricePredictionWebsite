@@ -127,7 +127,7 @@ async def classify_price(input: ClassifyInput):
         # Call the model's classify method using the input data
         result = classify_model.classify(input.year,input.quarter,input.distance,input.passengers,input.price)
         
-        logger.info(f"Classify {result}")
+        #logger.info(f"Classify {result}")
 
         return result
     
