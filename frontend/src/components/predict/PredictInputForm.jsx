@@ -83,7 +83,7 @@ function PredictInputForm({ setPredictedPrice }) {
 
   return (
     <Box>
-      <Typography variant="h4" component="h1" gutterBottom sx={{ my: 8, textAlign: 'center', fontWeight: 'bold' }}> Flight Price Prediction </Typography>
+      <Typography variant="h4" component="h1" gutterBottom sx={{ my: 8, textAlign: 'center', fontWeight: 'bold' }}> Price Prediction </Typography>
       <Paper elevation={3} sx={{ p: 3, width: "85%", margin: "0 auto" }}>
         <form onSubmit={handleSubmit}>
           <Grid container spacing={2}>

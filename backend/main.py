@@ -1,11 +1,17 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Depends, Request
 from pydantic import BaseModel, Field
+from fastapi.responses import JSONResponse
+from fastapi import BackgroundTasks
 from predict_model import PredictModel
 from recommend_model import RecommendModel
+from classify_model import ClassifyModel
 from dataset import Dataset
 from fastapi.middleware.cors import CORSMiddleware
 from utils import logger
 import pandas as pd
+import joblib
+
+import time
 
 app = FastAPI()
 
@@ -25,6 +31,7 @@ dataset.preprocess()
 # Load the pre-trained model
 predict_model = PredictModel(dataset)
 recommend_model = RecommendModel(dataset)
+classify_model = ClassifyModel(dataset)
 
 # Define a Pydantic model to validate and parse input data for prediction
 class PredictionInput(BaseModel):
@@ -39,6 +46,15 @@ class RecommendationInput(BaseModel):
     # Field defines constraints for input validation
     price: int = Field(..., gt=0, description="Fare of the flight")
     distance: int = Field(..., gt=0, description="Miles of the flight")
+
+class ClassificationInput(BaseModel):
+    year: int = Field(..., gt=2014,le=2024, description="Year of Flight")
+    quarter: int = Field(..., ge=1, le=4, description="Quarter in that year of flight")
+    distance: int = Field(..., gt=0, description="Distance of the flight")
+    passengers: int = Field(..., gt=0, description="Number of passengers inside the flight")
+    price: int = Field(..., gt=0, description="Fare of the flight")
+
+
 
 # Define a GET endpoint at "/datasets" to fetch historical datasets
 @app.get("/datasets")
@@ -105,6 +121,26 @@ async def recommend_flights(input: RecommendationInput):
         # Raise an HTTP 500 Internal Server Error if prediction fails
         raise HTTPException(status_code=500, detail="Internal server error")
     
+@app.post("/classify/")
+async def classify_price(input: ClassificationInput):
+    try:
+        # Call the model's classify method using the input data
+        result = classify_model.classify(input.year,input.quarter,input.distance,input.passengers,input.price)        
+        logger.info(f"Classification made: Category {result[0]} Confidence {result[1]}")
+
+        return {
+            "category": result[0],
+            "confidence": result[1]
+        }
+    
+    except Exception as e:
+        # Log the error if an exception occurs during prediction
+        logger.error(f"Error during prediction: {str(e)}")
+        
+        # Raise an HTTP 500 Internal Server Error if prediction fails
+        raise HTTPException(status_code=500, detail="Internal server error")
+    
+
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8000)

@@ -45,7 +45,7 @@ function RecommendInputForm({ setSimilarFlights, inputRecommendedPrice, setInput
       setSnackbarSeverity('success');
       setSnackbarOpen(true);
     } catch (error) {
-      console.error("Error fetching prediction:", error);
+      console.error("Error fetching recommendation:", error);
 
       // Show error message
       setSnackbarMessage('Error recommending flights. Please try again.');

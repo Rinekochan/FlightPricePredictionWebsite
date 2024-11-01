@@ -7,8 +7,9 @@ import {
     Menu as MenuIcon,
     Home as HomeIcon,
     Info as InfoIcon,
-    Help as HelpIcon,
-    Flight as FlightIcon,
+    PriceChange as PriceChangeIcon,
+    Recommend as RecommendIcon,
+    Category as CategoryIcon
 } from '@mui/icons-material';
 
 // This is the Navigation Drawer component, used when the screen is mobile
@@ -36,15 +37,15 @@ function NavDrawer() {
                             <ListItemText sx = {{color: 'black'}} primary="About" />
                         </ListItem>
                         <ListItem button component={Link} to="/predict">
-                            <ListItemIcon><FlightIcon sx = {{color: '#3F4B3B'}} /></ListItemIcon>
+                            <ListItemIcon><PriceChangeIcon sx = {{color: '#3F4B3B'}} /></ListItemIcon>
                             <ListItemText sx = {{color: 'black'}} primary="Predict" />
                         </ListItem>
                         <ListItem button component={Link} to="/recommend">
-                            <ListItemIcon><FlightIcon sx = {{color: '#3F4B3B'}} /></ListItemIcon>
+                            <ListItemIcon><RecommendIcon sx = {{color: '#3F4B3B'}} /></ListItemIcon>
                             <ListItemText sx = {{color: 'black'}} primary="Recommend" />
                         </ListItem>
                         <ListItem button component={Link} to="/classify">
-                            <ListItemIcon><FlightIcon sx = {{color: '#3F4B3B'}} /></ListItemIcon>
+                            <ListItemIcon><CategoryIcon sx = {{color: '#3F4B3B'}} /></ListItemIcon>
                             <ListItemText sx = {{color: 'black'}} primary="Classify" />
                         </ListItem>
                     </List>

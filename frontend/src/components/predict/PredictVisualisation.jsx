@@ -11,7 +11,7 @@ function PredictVisualisation({ predictedPrice }) {
             try {
                 const response = await axios.get('http://localhost:8000/datasets');
                 console.log(response.data); // Log the response data to inspect its structure
-                
+
                 const processedData = response.data.data.map(item => ({
                     year: item.Year,
                     quarter: item.Quarter,
@@ -25,6 +25,7 @@ function PredictVisualisation({ predictedPrice }) {
         fetchDataset();
     }, []);
 
+
     // Map historical and predicted data to x and y arrays for Plotly
     const historicalX = historicalData.map(d => `${d.year} Q${d.quarter}`);
     const historicalY = historicalData.map(d => d.price);
@@ -32,8 +33,28 @@ function PredictVisualisation({ predictedPrice }) {
     const predictedX = predictedPrice ? [`${predictedPrice.year} Q${predictedPrice.quarter}`] : [];
     const predictedY = predictedPrice ? [predictedPrice.price] : [];
 
+    // Generate open, high, low, close values for the candlestick chart
+    const candlestickOpen = [historicalY[0]]; // Set first open as the first price
+    const candlestickClose = [];
+    const candlestickHigh = [];
+    const candlestickLow = [];
+
+    // Loop through historical prices to create OHLC values
+    for (let i = 0; i < historicalY.length; i++) {
+        if (i === 0) {
+            candlestickClose.push(historicalY[i]); // The first close is the first price
+            candlestickHigh.push(historicalY[i]);
+            candlestickLow.push(historicalY[i]);
+        } else {
+            candlestickOpen.push(historicalY[i - 1]); // Previous price as the current open
+            candlestickClose.push(historicalY[i]); // Current price as the close
+            candlestickHigh.push(Math.max(historicalY[i], historicalY[i - 1])); // Max of current and previous
+            candlestickLow.push(Math.min(historicalY[i], historicalY[i - 1])); // Min of current and previous
+        }
+    }
+
     return (
-        <Box sx={{ display: 'flex', justifyContent: 'center', width: '100%', height: '100%', m: "0 auto", my: 5}}>
+        <Box sx={{ display: 'flex', justifyContent: 'center', width: '100%', height: '100%', m: "0 auto", my: 5 }}>
             <Plot
                 data={[
                     {
@@ -43,6 +64,17 @@ function PredictVisualisation({ predictedPrice }) {
                         type: 'scatter',
                         name: 'Historical Prices',
                         line: { color: 'steelblue' },
+                    },
+                    {
+                        x: historicalX,
+                        open: candlestickOpen,
+                        high: candlestickHigh,
+                        low: candlestickLow,
+                        close: candlestickClose,
+                        type: 'candlestick',
+                        name: 'Candlestick Prices',
+                        increasing: { line: { color: 'green' } },
+                        decreasing: { line: { color: 'red' } },
                     },
                     {
                         x: predictedX,
