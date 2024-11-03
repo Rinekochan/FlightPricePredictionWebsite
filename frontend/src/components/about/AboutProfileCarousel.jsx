@@ -18,7 +18,7 @@ function AboutProfileCarousel() {
             name: "Siradanai Inchansuk",
             title: "CTO of Kamikaze Company",
             image: Siradanai,
-            content: "Lorem ipsum odor amet, consectetuer adipiscing elit. Sodales erat suscipit lorem proin nisl habitasse mi commodo ullamcorper. Ligula malesuada ad tincidunt maximus leo sagittis mauris. Dapibus eu lacinia, parturient proin nam phasellus. Fusce libero convallis dignissim euismod potenti phasellus? Metus nostra porttitor litora velit pellentesque euismod. Mi malesuada vestibulum et conubia primis eleifend torquent. Ipsum cubilia mollis, donec fermentum tempor parturient?"
+            content: "I’m Siradanai Inchansuk, but friends usually call me Prem. I’m a second year student in computer science from Bangkok Thailand, currently studying at Swinburne University of Technology. My fascination with coding and web technology led me to pursue this path. I am always learning new tools that are constantly being developed especially in the software development sector."
         },
         {
             name: "Pawarit Sethi",
