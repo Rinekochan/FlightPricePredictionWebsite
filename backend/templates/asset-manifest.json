@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/static/css/main.78eb94fb.css",
+    "main.js": "/static/js/main.82967953.js",
+    "static/media/Viet.jpg": "/static/media/Viet.656ab4b7f6d65c2490e0.jpg",
+    "static/media/SiradanaiAvatar.jpg": "/static/media/SiradanaiAvatar.fae5a6932fc38e62503a.jpg",
+    "static/media/Pawarit.JPG": "/static/media/Pawarit.66585d7c199eb86c3870.JPG",
+    "static/media/VietAvatar.png": "/static/media/VietAvatar.9baa9940c21511612a0e.png",
+    "static/media/Swinburne.jpg": "/static/media/Swinburne.62e588b9f4cd33ae6b3d.jpg",
+    "static/media/PawaritAvatar.JPG": "/static/media/PawaritAvatar.07124bc0feee3901b80d.JPG",
+    "static/media/FlightHappy.jpg": "/static/media/FlightHappy.a79ccb17ddfcc6385be5.jpg",
+    "static/media/PlaneBackground.jpg": "/static/media/PlaneBackground.f832d0df15bbf130a043.jpg",
+    "index.html": "/index.html",
+    "main.78eb94fb.css.map": "/static/css/main.78eb94fb.css.map",
+    "main.82967953.js.map": "/static/js/main.82967953.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.78eb94fb.css",
+    "static/js/main.82967953.js"
+  ]
+}

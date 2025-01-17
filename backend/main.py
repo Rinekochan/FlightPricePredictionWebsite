@@ -1,6 +1,8 @@
 from fastapi import FastAPI, HTTPException, Depends, Request
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
-from fastapi.responses import JSONResponse
+from fastapi.responses import FileResponse, JSONResponse
+from fastapi.templating import Jinja2Templates
 from fastapi import BackgroundTasks
 from predict_model import PredictModel
 from recommend_model import RecommendModel
@@ -10,19 +12,26 @@ from fastapi.middleware.cors import CORSMiddleware
 from utils import logger
 import pandas as pd
 import joblib
+import os
 
 import time
 
 app = FastAPI()
 
-# Add CORS middleware
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["http://localhost:3000"], # URL of React application
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+# Serve React static files
+app.mount("/static", StaticFiles(directory="static"), name="static")
+
+templates = Jinja2Templates(directory="templates")
+
+@app.get("/")
+async def serve_spa(request: Request):
+    return templates.TemplateResponse("index.html", {"request": request})
+
+# Catch-all route for React frontend
+@app.route("/{full_path:path}")
+async def catch_all(request: Request, full_path: str):
+    logger.info("full_path: " + full_path)
+    return templates.TemplateResponse("index.html", {"request": request})
 
 # Initialize dataset
 dataset = Dataset()
