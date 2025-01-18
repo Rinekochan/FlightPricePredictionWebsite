@@ -67,7 +67,7 @@ function ClassifyInputForm({ setClassifiedCategory, setClassifiedConfidence }) {
 
         try {
             // POST request to your prediction API
-            const response = await axios.post('http://localhost:8000/classify/', requestData);
+            const response = await axios.post('/classify/', requestData);
 
             setClassifiedCategory(response.data.category || "Unknown");
             setClassifiedConfidence(response.data.confidence || { Low: 0, Medium: 0, High: 0 })

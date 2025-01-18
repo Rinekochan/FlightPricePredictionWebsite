@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.78eb94fb.css",
-    "main.js": "/static/js/main.82967953.js",
+    "main.js": "/static/js/main.7d747af9.js",
     "static/media/Viet.jpg": "/static/media/Viet.656ab4b7f6d65c2490e0.jpg",
     "static/media/SiradanaiAvatar.jpg": "/static/media/SiradanaiAvatar.fae5a6932fc38e62503a.jpg",
     "static/media/Pawarit.JPG": "/static/media/Pawarit.66585d7c199eb86c3870.JPG",
@@ -12,10 +12,10 @@
     "static/media/PlaneBackground.jpg": "/static/media/PlaneBackground.f832d0df15bbf130a043.jpg",
     "index.html": "/index.html",
     "main.78eb94fb.css.map": "/static/css/main.78eb94fb.css.map",
-    "main.82967953.js.map": "/static/js/main.82967953.js.map"
+    "main.7d747af9.js.map": "/static/js/main.7d747af9.js.map"
   },
   "entrypoints": [
     "static/css/main.78eb94fb.css",
-    "static/js/main.82967953.js"
+    "static/js/main.7d747af9.js"
   ]
 }

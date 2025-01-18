@@ -37,7 +37,7 @@ function RecommendInputForm({ setSimilarFlights, inputRecommendedPrice, setInput
 
     try {
       // POST request to your prediction API
-      const response = await axios.post('http://localhost:8000/recommend/', requestData);
+      const response = await axios.post('/recommend/', requestData);
       setSimilarFlights(response.data.similar_flights || []);
 
       // Show success message

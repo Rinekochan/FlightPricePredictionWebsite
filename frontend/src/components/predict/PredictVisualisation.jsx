@@ -9,7 +9,7 @@ function PredictVisualisation({ predictedPrice }) {
     useEffect(() => {
         const fetchDataset = async () => {
             try {
-                const response = await axios.get('http://localhost:8000/datasets');
+                const response = await axios.get('/datasets');
                 console.log(response.data); // Log the response data to inspect its structure
 
                 const processedData = response.data.data.map(item => ({

@@ -58,7 +58,7 @@ function PredictInputForm({ setPredictedPrice }) {
 
     try {
       // POST request to your prediction API
-      const response = await axios.post('http://localhost:8000/predict/', requestData);
+      const response = await axios.post('/predict/', requestData);
       setPredictedPrice({
         year: parseInt(requestData.year),
         quarter: parseInt(requestData.quarter),

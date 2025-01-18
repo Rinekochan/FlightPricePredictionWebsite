@@ -27,12 +27,6 @@ templates = Jinja2Templates(directory="templates")
 async def serve_spa(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
 
-# Catch-all route for React frontend
-@app.route("/{full_path:path}")
-async def catch_all(request: Request, full_path: str):
-    logger.info("full_path: " + full_path)
-    return templates.TemplateResponse("index.html", {"request": request})
-
 # Initialize dataset
 dataset = Dataset()
 dataset.preprocess()
@@ -69,6 +63,7 @@ class ClassificationInput(BaseModel):
 @app.get("/datasets")
 async def get_historical_data():
     try:
+        logger.info("What happens")
         # Get the dataset as a DataFrame
         data = pd.DataFrame(dataset.to_dict())
         
@@ -149,6 +144,13 @@ async def classify_price(input: ClassificationInput):
         # Raise an HTTP 500 Internal Server Error if prediction fails
         raise HTTPException(status_code=500, detail="Internal server error")
     
+    
+
+# Catch-all route for React frontend
+@app.get("/{full_path:path}")
+async def catch_all(request: Request, full_path: str):
+    logger.info("full_path: " + full_path)
+    return templates.TemplateResponse("index.html", {"request": request})
 
 if __name__ == "__main__":
     import uvicorn
