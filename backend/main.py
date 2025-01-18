@@ -27,12 +27,6 @@ templates = Jinja2Templates(directory="templates")
 async def serve_spa(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
 
-# Catch-all route for React frontend
-@app.route("/{full_path:path}")
-async def catch_all(request: Request, full_path: str):
-    logger.info("full_path: " + full_path)
-    return templates.TemplateResponse("index.html", {"request": request})
-
 # Initialize dataset
 dataset = Dataset()
 dataset.preprocess()
